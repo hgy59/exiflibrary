@@ -37,9 +37,9 @@ before_script:
 
 script:
   - if [[ "$TARGET" == "netstandard1.3" ]]; then
-      dotnet build -f $TARGET -c $CONFIGURATION ExifLibrary/ExifLibrary.csproj
+      dotnet build -f $TARGET -c $CONFIGURATION ExifLibrary/ExifLibrary.csproj;
     else
-      msbuild /p:Configuration=$CONFIGURATION /t:$TARGET ExifLibrary/ExifLibrary.csproj
+      msbuild /p:Configuration=$CONFIGURATION /t:$TARGET ExifLibrary/ExifLibrary.csproj;
     fi
 
 notifications:
