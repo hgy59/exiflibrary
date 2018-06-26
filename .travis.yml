@@ -20,6 +20,11 @@ matrix:
       os: osx
       osx_image: xcode8.3
       env: CONFIGURATION=Release TARGET=netstandard1.3
+    - mono: latest
+      os: linux
+      dist: trusty # Ubuntu 14.04
+      sudo: required
+      env: CONFIGURATION=Release TARGET=net542
 
 before_script:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
