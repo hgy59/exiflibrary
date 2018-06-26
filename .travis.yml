@@ -25,7 +25,7 @@ matrix:
       os: linux
       dist: trusty
       sudo: false
-      env: CONFIGURATION=Release TARGET=net452
+      env: CONFIGURATION=Release
 
 before_script:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
@@ -39,7 +39,7 @@ script:
   - if [[ "$TARGET" == "netstandard1.3" ]]; then
       dotnet build -f $TARGET -c $CONFIGURATION ExifLibrary/ExifLibrary.csproj;
     else
-      xbuild /p:Configuration=$CONFIGURATION /t:$TARGET ExifLibrary/ExifLibrary.csproj;
+      msbuild /p:Configuration=$CONFIGURATION /tv:15.0 ExifLibrary/ExifLibrary.csproj;
     fi
 
 notifications:
